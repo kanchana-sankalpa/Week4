@@ -39,19 +39,20 @@ namespace Core3Angular8.Controllers
 
         // POST api/students
         [HttpPost]
-      // public void Post([FromBody] string value)
-        public async Task<IActionResult> Post([FromBody] Student student)
+        // public void Post([FromBody] string value)
+        //public async Task<IActionResult> Post([FromBody] Student student)
+        public async Task<ActionResult <Student>> Post(Student student)
         {
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+           // if (!ModelState.IsValid)
+           // {
+               // return BadRequest(ModelState);
+            //}
 
             _context.Student.Add(student);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWorkout", new { id = student.Id }, student);
+            return CreatedAtAction("Get", new { id = student.Id }, student);
 
         }
 
