@@ -1,5 +1,22 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
+<h1>Hello, world! Students </h1>
+<p *ngIf="!Students"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="Students">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Roll</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of Students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+    </tr>
+  </tbody>
+</table>
 <ul>
   <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
   <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
